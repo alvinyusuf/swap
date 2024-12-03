@@ -34,28 +34,34 @@ jobs:
 
       - name: Check folder
         run: |
+          cd ./contracts
           ls -la
           pwd
 
       - name: Install depedencies
         run: |
+          cd ./contracts
           forge soldeer install
 
       - name: Show Forge version
         run: |
+          cd ./contracts
           forge --version
 
       - name: Run Forge fmt
         run: |
+          cd ./contracts
           forge fmt --check
         id: fmt
 
       - name: Run Forge build
         run: |
+          cd ./contracts
           forge build --sizes
         id: build
 
       - name: Run Forge tests
         run: |
+          cd ./contracts
           forge test -vvv
         id: test
