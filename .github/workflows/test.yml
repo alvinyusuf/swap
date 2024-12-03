@@ -39,7 +39,7 @@ jobs:
 
       - name: Install depedencies
         run: |
-          forge install soldeer
+          forge soldeer install
 
       - name: Show Forge version
         run: |
