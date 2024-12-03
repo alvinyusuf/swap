@@ -27,6 +27,11 @@ jobs:
         with:
           version: nightly
 
+      - name: Check folder
+        run: |
+          ls -la
+          pwd
+
       - name: Install depedencies
         run: |
           forge install soldeer
