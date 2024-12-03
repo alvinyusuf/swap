@@ -17,9 +17,9 @@ jobs:
 
     name: Foundry project
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./contracts
+    # defaults:
+    #   run:
+    #     working-directory: ./contracts
 
     steps:
       - name: Install Foundry
@@ -29,23 +29,28 @@ jobs:
 
       - name: Install depedencies
         run: |
+          cd contracts
           forge install soldeer
 
       - name: Show Forge version
         run: |
+          cd contracts
           forge --version
 
       - name: Run Forge fmt
         run: |
+          cd contracts
           forge fmt --check
         id: fmt
 
       - name: Run Forge build
         run: |
+          cd contracts
           forge build --sizes
         id: build
 
       - name: Run Forge tests
         run: |
+          cd contracts
           forge test -vvv
         id: test
