@@ -17,9 +17,9 @@ jobs:
 
     name: Foundry project
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./contracts
+    # defaults:
+    #   run:
+    #     working-directory: ./contracts
 
     steps:
       - name: Install Foundry
