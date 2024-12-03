@@ -12,18 +12,24 @@ jobs:
   check:
     strategy:
       fail-fast: true
+      matrix:
+        os: [ubuntu-latest]
 
     name: Foundry project
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
+    defaults:
+      run:
+        working-directory: ./contracts
 
+    steps:
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
+
+      - name: Install depedencies
+        run: |
+          forge install soldeer
 
       - name: Show Forge version
         run: |
