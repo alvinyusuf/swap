@@ -17,14 +17,15 @@ jobs:
 
     name: Foundry project
     runs-on: ubuntu-latest
-    # defaults:
-    #   run:
-    #     working-directory: ./contracts
 
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Change directory to contracts
+        run: |
+          cd ./contracts
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
